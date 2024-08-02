@@ -114,10 +114,10 @@ def match_insurance_fees(extracted_data, baodan_data):
     return suze_df
 
 
-def create_excel_download_button(df, label, file_name):
+def create_excel_download_button(df, label, file_name, index=False):
     excel_data = io.BytesIO()
     with pd.ExcelWriter(excel_data, engine="openpyxl") as writer:
-        df.to_excel(writer, index=False)
+        df.to_excel(writer, index=index)
     excel_data.seek(0)
     st.download_button(
         label=label,
@@ -180,7 +180,7 @@ def main():
             create_excel_download_button(
                 suze_df, "下载费用查询确认表", "费用查询确认.xlsx"
             )
-            create_excel_download_button(pivot_df, "下载数据透视表", "数据透视表.xlsx")
+            create_excel_download_button(pivot_df, "下载数据透视表", "数据透视表.xlsx", index=Truee)
 
             zip_buffer = create_zip(suze_df, pivot_df)
             # Download button
