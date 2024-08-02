@@ -180,7 +180,7 @@ def main():
             create_excel_download_button(
                 suze_df, "下载费用查询确认表", "费用查询确认.xlsx"
             )
-            create_excel_download_button(pivot_df, "下载数据透视表", "数据透视表.xlsx", index=Truee)
+            create_excel_download_button(pivot_df, "下载数据透视表", "数据透视表.xlsx", index=True)
 
             zip_buffer = create_zip(suze_df, pivot_df)
             # Download button
