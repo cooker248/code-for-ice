@@ -105,9 +105,9 @@ def match_insurance_fees(extracted_data, baodan_data):
     )
 
     # 处理为0的列
-    mask = (suze_df["险种代码"] == "0460") & (suze_df["保额（仅诉责）"] == 0)
-    replace_values = fee_data.loc[(fee_data["批单序号"] == "000") & mask, "保险金额"]
-    suze_df.loc[mask, "保额（仅诉责）"] = replace_values.astype(float).values
+    # mask = (suze_df["险种代码"] == "0460") & (suze_df["保额（仅诉责）"] == 0)
+    # replace_values = fee_data.loc[(fee_data["批单序号"] == "000") & mask, "保险金额"]
+    # suze_df.loc[mask, "保额（仅诉责）"] = replace_values.astype(float).values
 
     suze_df.drop(columns="保险金额", inplace=True)
 
